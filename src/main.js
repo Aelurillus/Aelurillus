@@ -3,9 +3,8 @@ if(window.gsap && window.ScrollTrigger){
  gsap.registerPlugin(ScrollTrigger);
  const mm=gsap.matchMedia();
  const motionButton=document.querySelector('.motion-control');
- const systemReduce=matchMedia('(prefers-reduced-motion: reduce)');
  let override=null;try{override=localStorage.getItem('itzming-motion-v4');}catch{}
- let full=override==='full'||(override===null&&!systemReduce.matches);
+ let full=override!=='reduce';
  function setupMotion(){
  mm.revert();document.documentElement.dataset.motion=full?'full':'reduce';
  motionButton.querySelector('span').textContent=full?'Ⅱ':'▶';motionButton.setAttribute('aria-label',full?'暫停動畫':'開啟動畫');motionButton.setAttribute('aria-pressed',String(full));
@@ -83,7 +82,6 @@ if(window.gsap && window.ScrollTrigger){
  }
  setupMotion();
  motionButton.addEventListener('click',()=>{full=!full;override=full?'full':'reduce';try{localStorage.setItem('itzming-motion-v4',override);}catch{}setupMotion();ScrollTrigger.refresh();});
- systemReduce.addEventListener('change',event=>{if(override!==null)return;full=!event.matches;setupMotion();ScrollTrigger.refresh();});
 
  document.fonts.ready.then(()=>ScrollTrigger.refresh());
 }
