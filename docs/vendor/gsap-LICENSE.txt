@@ -1,0 +1,1 @@
+GSAP 3.15.0 - Standard License: https://gsap.com/standard-license/ - Copyright GreenSock. Original license headers preserved in vendor scripts.

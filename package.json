@@ -1,0 +1,16 @@
+{
+  "name": "itzming-personal-space",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "5.3.0",
+    "@fontsource/manrope": "5.3.0",
+    "fontkit": "2.0.4",
+    "gsap": "3.15.0"
+  }
+}
